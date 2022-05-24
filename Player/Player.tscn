@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/SpritesheetGuns.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/bullets/Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bullet_Box.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 48, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 8.0
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+Bullet = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Bullet_Spawn" type="Position2D" parent="."]
+position = Vector2( 24, 0 )
+
+[node name="Bullet_Spawn2" type="Position2D" parent="."]
+position = Vector2( 32, 0 )
+
+[node name="Bullet_Box" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="ReloadTimer" type="Timer" parent="Bullet_Box"]
+one_shot = true
+
+[connection signal="timeout" from="Bullet_Box/ReloadTimer" to="Bullet_Box" method="_on_ReloadTimer_timeout"]
