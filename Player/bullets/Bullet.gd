@@ -12,6 +12,7 @@ func _init():
 
 func _ready():
 	spawnTimer.start()
+	self.connect("body_entered", self, "_on_Bullet_body_entered")
 
 func _physics_process(delta):
 	if direction != Vector2.ZERO:
@@ -21,10 +22,10 @@ func _physics_process(delta):
 func set_direction(dir: Vector2):
 	direction = dir
 	rotation += direction.angle()
+
+func _on_Timer_timeout():
+	queue_free()
 	
 func _on_Bullet_body_entered(body):
 	body.handle_bullet_entered()
-	queue_free()
-
-func _on_Timer_timeout():
 	queue_free()

@@ -13,8 +13,6 @@ func shoot():
 		var direction = (Bullet_Spawn2.global_position - Bullet_Spawn.global_position).normalized()
 		emit_signal("player_fired_bullet", bullet_box.next_bullet(), Bullet_Spawn.global_position, direction)
 		Gun_Timer.start()
-	else:
-		print('no bullets, consider reloading')
 		
 func reload():
 	Reload_Timer.start()

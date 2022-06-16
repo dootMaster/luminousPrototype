@@ -11,12 +11,12 @@ var bullet_dict = {
 }
 
 var bullet_cylinder = [
-#	bullet_dict.Bullet.instance(), 
-#	bullet_dict.Slow_Bullet.instance(), 
-#	bullet_dict.Fat_Bullet.instance(), 
-#	bullet_dict.Bullet.instance(), 
-#	bullet_dict.Slow_Bullet.instance(), 
-#	bullet_dict.Fat_Bullet.instance(), 
+	bullet_dict.Bullet.instance(), 
+	bullet_dict.Slow_Bullet.instance(), 
+	bullet_dict.Fat_Bullet.instance(), 
+	bullet_dict.Bullet.instance(), 
+	bullet_dict.Slow_Bullet.instance(), 
+	bullet_dict.Fat_Bullet.instance(), 
 	]
 	
 var spent_bullets = []

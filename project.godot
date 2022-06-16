@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "Reference",
+"class": "test_script",
+"language": "GDScript",
+"path": "res://test_class.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
-"Player": ""
+"Player": "",
+"test_script": ""
 }
 
 [application]

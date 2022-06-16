@@ -1,4 +1,4 @@
 extends Bullet
 
-func _init():
+func _ready():
 	speed = 1000
